@@ -5,7 +5,7 @@ function App() {
   useEffect(() =>{
     API.get('/indicadores')
     .then(response =>{
-      console.log('Deu certo\n', response)
+      console.log('Deu certo\n', response.data)
     })
     .catch(error =>{
       console.log('Deu erro\n', error)
