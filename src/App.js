@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import API from '../services/axios/API'
+import API from './services/axios/API'
 
 function App() {
   useEffect(() =>{
