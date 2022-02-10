@@ -10,6 +10,13 @@ function App() {
     .catch(error =>{
       console.log('Deu erro\n', error)
     })
+    API.get('/simulacoes')
+    .then(response =>{
+      console.log('Deu certo\n', response.data)
+    })
+    .catch(error =>{
+      console.log('Deu erro\n', error)
+    })
   },[])
   return (
     <div></div>
