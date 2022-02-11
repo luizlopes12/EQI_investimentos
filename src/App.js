@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Global/globalStyle.css'
+import './global/globalStyle.css'
 import {API} from './services/axios/API'
 
 function App() {
