@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Container from './components/Container/Container'
 import './global/globalStyle.css'
 import {API} from './services/axios/API'
 
@@ -21,7 +22,7 @@ function App() {
   },[])
   return (
     <>
-
+    <Container/>
     </>
   );
 }
