@@ -1,4 +1,5 @@
 import React from 'react';
+import Inputs from '../Inputs/Inputs'
 import './Container.css'
 function Container() {
     return (
@@ -7,7 +8,7 @@ function Container() {
                 <h1>Simulador de Investimentos</h1>
             </header>
             <main>
-            
+                <Inputs/>
             </main>
         </>
 
