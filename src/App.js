@@ -9,7 +9,7 @@ function App() {
   useEffect(() =>{
     API.get('/indicadores')
     .then(response =>{
-      indicadores != false && setIndicadores(response.data)
+      setIndicadores(response.data)
       console.log('Deu certo\n', response.data)
     })
     .catch(error =>{

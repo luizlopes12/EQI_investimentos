@@ -11,25 +11,24 @@ function Inputs({indicadores}) {
     const [rentabilidade, setRentabilidade] = useState('')
     const [simulacao, setSimulacao] = useState('')
     const handleRendimento = (rend) =>{
-      rend !== false && setRendimento(rend) 
+      setRendimento(rend) 
     }
     const handleIndexacao = (indexacao) =>{
-      indexacao !== false && setIndexacao(indexacao) 
+      setIndexacao(indexacao) 
     }
     const handleAporteInicial = (valor) =>{
-      valor !== false && setAporteInicial(valor) 
+      setAporteInicial(valor) 
     }
     const handlePrazo = (valor) =>{
-      valor !== false && setPrazo(valor)
+      setPrazo(valor)
     }
     const handleAporteMensal = (valor) =>{
-      valor !== false && setAporteMensal(valor)
+      setAporteMensal(valor)
     }
     const handleRentabilidade = (valor) =>{
-      valor !== false && setRentabilidade(valor)
+      setRentabilidade(valor)
     }
-    const formSubmit = (e) =>{
-        e.preventDefault()
+    const formSubmit = () =>{
         let query = `?tipoIndexacao=${indexacao}&tipoRendimento=${rendimento}`;
         API.get(`/simulacoes${query}`)
         .then((response)=>{
@@ -46,12 +45,15 @@ function Inputs({indicadores}) {
         console.log(indexacao);
     }
     const clearInputs = () =>{
-
+      setAporteInicial('')
+      setAporteMensal('')
+      setPrazo('')
+      setRentabilidade('')
     }
   return (
     <>
         <h2>Simulador</h2>
-        <form onSubmit={formSubmit}>
+        <form onSubmit={(e)=>e.preventDefault()}>
         <div>
           <div>
           <p>Rendimento</p>
@@ -92,16 +94,16 @@ function Inputs({indicadores}) {
             </div>
           </div>
           <button onClick={clearInputs}>Limpar campos</button>
-          <button type='submit'>Simular</button>
+          <button type='submit' onClick={formSubmit}>Simular</button>
         </form>
 
         <div>
-          <p>{simulacao.valorFinalBruto}</p>
-          <p>{simulacao.aliquotaIR}</p>
-          <p>{simulacao.valorPagoIR}</p>
-          <p>{simulacao.valorFinalLiquido}</p>
-          <p>{simulacao.valorTotalInvestido}</p>
-          <p>{simulacao.ganhoLiquido}</p>
+          <p>Valor Final Bruto: {simulacao.valorFinalBruto}</p>
+          <p>Aliquota do IR: {simulacao.aliquotaIR}</p>
+          <p>Valor pago em IR: {simulacao.valorPagoIR}</p>
+          <p>Valor Final Liquido: {simulacao.valorFinalLiquido}</p>
+          <p>Valor Total Investido: {simulacao.valorTotalInvestido}</p>
+          <p>Ganho Liquido: {simulacao.ganhoLiquido}</p>
 
         </div>
 
