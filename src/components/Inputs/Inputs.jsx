@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import {API} from '../../services/axios/API'
 function Inputs({indicadores}) {
     const ipca = indicadores != false && indicadores[1].valor 
@@ -9,6 +9,7 @@ function Inputs({indicadores}) {
     const [aporteMensal, setAporteMensal] = useState('')
     const [prazo, setPrazo] = useState('')
     const [rentabilidade, setRentabilidade] = useState('')
+    const [simulacao, setSimulacao] = useState('')
     const handleRendimento = (rend) =>{
       rend !== false && setRendimento(rend) 
     }
@@ -32,7 +33,8 @@ function Inputs({indicadores}) {
         let query = `?tipoIndexacao=${indexacao}&tipoRendimento=${rendimento}`;
         API.get(`/simulacoes${query}`)
         .then((response)=>{
-          console.log(response.data)
+          setSimulacao(response.data[0])
+          console.log(response.data[0])
         })
         .catch((error)=>{
           console.log(error)
@@ -44,9 +46,7 @@ function Inputs({indicadores}) {
         console.log(indexacao);
     }
     const clearInputs = () =>{
-      setRendimento('')
-      setAporteInicial('')
-      setPrazo('')
+
     }
   return (
     <>
@@ -94,6 +94,20 @@ function Inputs({indicadores}) {
           <button onClick={clearInputs}>Limpar campos</button>
           <button type='submit'>Simular</button>
         </form>
+
+        <div>
+          <p>{simulacao.valorFinalBruto}</p>
+          <p>{simulacao.aliquotaIR}</p>
+          <p>{simulacao.valorPagoIR}</p>
+          <p>{simulacao.valorFinalLiquido}</p>
+          <p>{simulacao.valorTotalInvestido}</p>
+          <p>{simulacao.ganhoLiquido}</p>
+
+        </div>
+
+
+
+
     </>
   )
 }
