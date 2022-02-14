@@ -17,9 +17,9 @@ function Inputs({indicadores}) {
     }
     const formSubmit = (e) =>{
         e.preventDefault()
-        console.log(rendimento, typeof rendimento);
-        console.log(aporteInicial, typeof aporteInicial);
-        console.log(prazo, typeof prazo);
+        console.log(rendimento);
+        console.log(aporteInicial);
+        console.log(prazo);
     }
   return (
     <>
