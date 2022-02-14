@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 
 function Inputs({indicadores}) {
     const ipca = indicadores != false && indicadores[1].valor
+    const cdi = indicadores != false && indicadores[0].valor
     const [rendimento, setRendimento] = useState('')
     const [aporteInicial, setAporteInicial] = useState('')
     const [prazo, setPrazo] = useState('')
@@ -16,9 +17,9 @@ function Inputs({indicadores}) {
     }
     const formSubmit = (e) =>{
         e.preventDefault()
-        console.log(rendimento);
-        console.log(aporteInicial);
-        console.log(prazo);
+        console.log(rendimento, typeof rendimento);
+        console.log(aporteInicial, typeof aporteInicial);
+        console.log(prazo, typeof prazo);
     }
   return (
     <>
@@ -31,15 +32,15 @@ function Inputs({indicadores}) {
         </div>
         <div>
           <p>Aporte Inicial</p>
-          <input type="text" value={aporteInicial} onChange={(event)=>handleAporteInicial(event.target.value)}/>
+          <input value={aporteInicial} onChange={(event)=>handleAporteInicial(event.target.value)}/>
         </div>
         <div>
           <p>Prazo (em meses)</p>
-          <input type="text" value={prazo} onChange={(event)=>handlePrazo(event.target.value)}/>
+          <input value={prazo} onChange={(event)=>handlePrazo(event.target.value)}/>
         </div>
         <div>
           <p>IPCA (ao ano)</p>
-          <input type="text" value={ipca} readOnly/>
+          <input value={ipca} readOnly/>
         </div>
         <button type='submit'>enviar</button>
         </form>
