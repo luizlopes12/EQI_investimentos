@@ -4,8 +4,8 @@ import './global/globalStyle.css'
 import {API} from './services/axios/API'
 
 function App() {
-  const [indicadores, setIndicadores] = useState([])
-  const [simulacoes, setSimulacoes] = useState([])
+  const [indicadores, setIndicadores] = useState(false)
+  const [simulacoes, setSimulacoes] = useState(false)
 
   useEffect(() =>{
     API.get('/indicadores')
@@ -27,7 +27,7 @@ function App() {
   },[])
   return (
     <>
-    <Container indicadores={indicadores}/>
+    <Container indicadores={indicadores != false && indicadores}/>
     </>
   );
 }

@@ -8,7 +8,7 @@ function Container({indicadores}) {
                 <h1>Simulador de Investimentos</h1>
             </header>
             <main>
-                <Inputs indicadores={indicadores}/>
+                <Inputs indicadores={indicadores != false && indicadores}/>
             </main>
         </>
 
