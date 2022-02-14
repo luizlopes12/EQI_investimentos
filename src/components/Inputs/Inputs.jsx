@@ -11,9 +11,13 @@ function Inputs() {
     }
   return (
     <>
+        <h2>Simulador</h2>
         <form onSubmit={formSubmit}>
+        <div>
+        <p>Rendimento</p>
         <label>bruto</label><input type="radio" name='rendimento' value='bruto' onChange={()=>handleRendimento('bruto')}/>
         <label>liquido</label><input type="radio" name='rendimento' value='liquido' onChange={()=>handleRendimento('liquido')}/>
+        </div>
         <button type='submit'>enviar</button>
         </form>
     </>
