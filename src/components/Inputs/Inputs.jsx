@@ -17,16 +17,28 @@ function Inputs({indicadores}) {
       setIndexacao(indexacao) 
     }
     const handleAporteInicial = (valor) =>{
+      isNumber(valor)?
       setAporteInicial(valor) 
+      :
+      setAporteInicial('')
     }
     const handlePrazo = (valor) =>{
-      setPrazo(valor)
+      isNumber(valor)?
+      setPrazo(valor) 
+      :
+      setPrazo('')
     }
     const handleAporteMensal = (valor) =>{
-      setAporteMensal(valor)
+      isNumber(valor)?
+      setAporteMensal(valor) 
+      :
+      setAporteMensal('') 
     }
     const handleRentabilidade = (valor) =>{
+      isNumber(valor)?
       setRentabilidade(valor)
+      :
+      setRentabilidade('') 
     }
     const formSubmit = () =>{
         let query = `?tipoIndexacao=${indexacao}&tipoRendimento=${rendimento}`;
@@ -49,6 +61,9 @@ function Inputs({indicadores}) {
       setAporteMensal('')
       setPrazo('')
       setRentabilidade('')
+    }
+    const isNumber = (str) =>{
+      return !isNaN(parseFloat(str))
     }
   return (
     <>
