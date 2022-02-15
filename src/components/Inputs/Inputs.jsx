@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import Graph from '../Graph/Graph' 
 import {API} from '../../services/axios/API'
 function Inputs({indicadores}) {
     const ipca = indicadores != false && indicadores[1].valor 
@@ -112,19 +113,7 @@ function Inputs({indicadores}) {
           <button type='submit' onClick={formSubmit}>Simular</button>
         </form>
 
-        <div>
-          <p>Valor Final Bruto: {simulacao.valorFinalBruto}</p>
-          <p>Aliquota do IR: {simulacao.aliquotaIR}</p>
-          <p>Valor pago em IR: {simulacao.valorPagoIR}</p>
-          <p>Valor Final Liquido: {simulacao.valorFinalLiquido}</p>
-          <p>Valor Total Investido: {simulacao.valorTotalInvestido}</p>
-          <p>Ganho Liquido: {simulacao.ganhoLiquido}</p>
-
-        </div>
-
-
-
-
+        <Graph/>
     </>
   )
 }
