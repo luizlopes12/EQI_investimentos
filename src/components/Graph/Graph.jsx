@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Graph() {
+function Graph({simulacao}) {
     return (
         <div>
-            
+            {simulacao}
         </div>
     );
 }

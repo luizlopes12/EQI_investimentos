@@ -1,0 +1,28 @@
+section{
+    width: 30%;
+}
+h2{
+    margin: 10px 0;
+}
+.form{
+    display: flex;
+    justify-content: space-between;
+}
+.card{
+    width: 85%;
+}
+.info{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1em;
+}
+.radios{
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+.radios label{
+    background-color: #000;
+}

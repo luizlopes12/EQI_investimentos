@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-import Graph from '../Graph/Graph' 
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import './Inputs.css'
 import {API} from '../../services/axios/API'
 function Inputs({indicadores}) {
     const ipca = indicadores != false && indicadores[1].valor 
@@ -51,11 +52,6 @@ function Inputs({indicadores}) {
         .catch((error)=>{
           console.log(error)
         })
-        console.log(rendimento);
-        console.log(aporteInicial);
-        console.log(prazo);
-        console.log(ipca)
-        console.log(indexacao);
     }
     const clearInputs = () =>{
       setAporteInicial('')
@@ -67,14 +63,16 @@ function Inputs({indicadores}) {
       return !isNaN(parseFloat(str))
     }
   return (
-    <>
+    <section>
         <h2>Simulador</h2>
-        <form onSubmit={(e)=>e.preventDefault()}>
-        <div>
+        <form className='form' onSubmit={(e)=>e.preventDefault()}>
+        <div className='card'>
           <div>
-          <p>Rendimento</p>
+          <p className='info'>Rendimento<AiOutlineInfoCircle/></p>
+          <div className='radios'>
           <label>bruto</label><input type="radio" name='rendimento' value='bruto' onChange={(e)=>handleRendimento(e.target.value)}/>
           <label>liquido</label><input type="radio" name='rendimento' value='liquido' onChange={(e)=>handleRendimento(e.target.value)}/>
+          </div>
           </div>
           <div>
             <p>Aporte Inicial</p>
@@ -88,10 +86,11 @@ function Inputs({indicadores}) {
             <p>IPCA (ao ano)</p>
             <input value={`${ipca}%`} readOnly/>
           </div>
+          <button onClick={clearInputs}>Limpar campos</button>
         </div>
-          <div>
+          <div className='card'>
             <div>
-              <p>tipo de indexação</p>
+                <p className='info'>Tipo de Indexação<AiOutlineInfoCircle/></p>
                 <label>PRÉ</label><input type="radio" name='indexacao' value='pre' onChange={(e)=>handleIndexacao(e.target.value)}/>
                 <label>PÓS</label><input type="radio" name='indexacao' value='pos' onChange={(e)=>handleIndexacao(e.target.value)}/>
                 <label>FIXADO</label><input type="radio" name='indexacao' value='ipca' onChange={(e)=>handleIndexacao(e.target.value)}/>
@@ -108,13 +107,12 @@ function Inputs({indicadores}) {
               <p>CDI (ao ano)</p>
               <input value={`${cdi}%`} readOnly/>
             </div>
+            <button type='submit' onClick={formSubmit}>Simular</button>
           </div>
-          <button onClick={clearInputs}>Limpar campos</button>
-          <button type='submit' onClick={formSubmit}>Simular</button>
         </form>
 
-        <Graph/>
-    </>
+        {/* <Graph simulacao={simulacao}/> */}
+    </section>
   )
 }
 

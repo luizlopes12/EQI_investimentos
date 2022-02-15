@@ -3,14 +3,14 @@ import Inputs from '../Inputs/Inputs'
 import './Container.css'
 function Container({indicadores}) {
     return (
-        <>
-            <header>
+        <div className='container'>
+            <header className='header'>
                 <h1>Simulador de Investimentos</h1>
             </header>
-            <main>
+            <main className='main'>
                 <Inputs indicadores={indicadores != false && indicadores}/>
             </main>
-        </>
+        </div>
 
     );
 }

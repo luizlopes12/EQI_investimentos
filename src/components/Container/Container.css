@@ -1,0 +1,17 @@
+.container{
+    background-color: #efefef;
+    height: 90vh;
+    width: 95vw;
+    margin: 5vh auto;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+.main{
+    width: 100%;
+    margin: 0 0 0 30px;
+    justify-content: start;
+}
